@@ -40,11 +40,10 @@ const plumberNotify = (title) => ({
 export const htmlDev = () => {
     return gulp
         .src(['src/html/**/*.html', '!src/html/blocks/*.html'])
-         .pipe(changed('build/'))
         .pipe(plumber(plumberNotify("HTML")))
+        .pipe(changed('./build/'))
         .pipe(fileInclude(fileIncludeSettings))
-        .pipe(gulp.dest('build/'))
-       
+        .pipe(gulp.dest('build/'));
 };
 
 export const sassDev = () => {
@@ -91,3 +90,8 @@ export const watchDev = () => {
     gulp.watch('./src/img/**/*', imagesDev);
     gulp.watch('./src/js/**/*.js', jsDev);
 };
+
+// Добавляем дополнительную функцию, которая сигнализирует о завершении задачи
+export const defaultTask = gulp.series(cleanDev, gulp.parallel(htmlDev, sassDev, imagesDev, jsDev), gulp.parallel(serverDev, watchDev));
+
+export default defaultTask;

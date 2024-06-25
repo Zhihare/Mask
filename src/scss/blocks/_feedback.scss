@@ -1,0 +1,37 @@
+.feedback {
+    margin-bottom: 120px;
+}
+
+.feedback>picture>img{
+    margin-bottom: 40px;
+    height: 475px;
+    object-fit: cover;
+}
+
+.feedback-inform {
+    text-align: center;
+}
+
+.feedback-inform>h2{
+    color: var(--text-color-dark);
+    font-family: var(--font-main);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 50px;
+    margin-bottom: 29px;
+    
+}
+
+.feedback-inform>p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-bottom: 29px;
+    
+}
+
+@media screen and (max-width: 960px) {
+    .feedback {
+            margin-bottom: 40px;
+        }
+}
